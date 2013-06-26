@@ -2,45 +2,17 @@
 
 Adhearsion.config do |config|
 
-  # Centralized way to specify any Adhearsion platform or plugin configuration
-  # - Execute rake config:show to view the active configuration values
-  #
-  # To update a plugin configuration you can write either:
-  #
-  #    * Option 1
-  #        Adhearsion.config.<plugin-name> do |config|
-  #          config.<key> = <value>
-  #        end
-  #
-  #    * Option 2
-  #        Adhearsion.config do |config|
-  #          config.<plugin-name>.<key> = <value>
-  #        end
-
   config.development do |dev|
-    dev.platform.logging.level = :debug
+    dev.platform.logging.level = :fatal
   end
 
-  ##
-  # Use with Rayo (eg Voxeo PRISM)
-  #
-  # config.punchblock.username = "" # Your XMPP JID for use with Rayo
-  # config.punchblock.password = "" # Your XMPP password
+  config.punchblock.platform = :asterisk # Use Asterisk
+  config.punchblock.username = "" # Your AMI username
+  config.punchblock.password = "" # Your AMI password
+  config.punchblock.host = "127.0.0.1" # Your AMI host
 
-  ##
-  # Use with Asterisk
-  #
-  # config.punchblock.platform = :asterisk # Use Asterisk
-  # config.punchblock.username = "" # Your AMI username
-  # config.punchblock.password = "" # Your AMI password
-  # config.punchblock.host = "127.0.0.1" # Your AMI host
-
-  ##
-  # Use with FreeSWITCH
-  #
-  # config.punchblock.platform = :freeswitch # Use FreeSWITCH
-  # config.punchblock.password = "" # Your Inbound EventSocket password
-  # config.punchblock.host = "127.0.0.1" # Your IES host
+  config.virginia.handler = StatsHandler
+  config.virginia.port = 5005
 end
 
 Adhearsion::Events.draw do
