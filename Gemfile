@@ -5,6 +5,7 @@ gem 'punchblock', :git => 'git://github.com/adhearsion/punchblock.git', :branch 
 gem 'virginia'
 gem 'activesupport', '3.2.12'
 gem 'json'
+gem 'net-http-pipeline'
 
 group :development, :test do
   gem 'rspec'
