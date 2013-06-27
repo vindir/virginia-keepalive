@@ -1,7 +1,7 @@
 require 'reel'
 require 'json'
 
-class AhnStatsHandler
+class StatsHandler
   def self.handle(request)
     response = {}
 
